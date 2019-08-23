@@ -1,24 +1,104 @@
-//import ProjetoDAO from "./projeto_dao";
-import * as productDao from './projeto_dao';
+class Projeto {
+    constructor(titulo, areaPrincipal, tipoDeAcao, resumo, local, publicoAlvo, vagas, equipe, imagens) {
+        this._titulo = titulo;
+        this._areaPrincipal = areaPrincipal;
+        this._tipoDeAcao = tipoDeAcao;
+        this._resumo = resumo;
+        this._local = local;
+        this._publicoAlvo = publicoAlvo;
+        this._vagas = vagas;
+        this._equipe = equipe;
+        this._imagens = imagens;
+    }
+
+    get titulo() {
+        return this._titulo;
+    }
+    set titulo(novoTitulo) {
+        this._titulo = novoTitulo;
+    }
+    
+    get areaPrincipal() {
+        return this._areaPrincipal;
+    }
+    set areaPrincipal(novoAreaPrincipal) {
+        this._areaPrincipal = novoAreaPrincipal;
+    }
+    
+    get tipoDeAcao() {
+        return this._tipoDeAcao;
+    }
+    set tipoDeAcao(novoTipoDeAcao) {
+        this._tipoDeAcao = novoTipoDeAcao;
+    }
+
+    get resumo() {
+        return this._resumo;
+    }
+    set resumo(novoResumo) {
+        this._resumo = novoResumo;
+    }
+    
+    get local() {
+        return this._local;
+    }
+    set local(novoLocal) {
+        this._local = novoLocal;
+    }
+    
+    get publicoAlvo() {
+        return this._publicoAlvo;
+    }
+    set publicoAlvo(novoPublicoAlvo) {
+        this._publicoAlvo = novoPublicoAlvo;
+    }
+    
+    get vagas() {
+        return this._vagas;
+    }
+    set vagas(novoVagas) {
+        this._vagas = novoVagas;
+    }
+    
+    get equipe() {
+        return this._equipe;
+    }
+    set equipe(novoEquipe) {
+        this._equipe = novoEquipe;
+    }
+    
+    get imagens() {
+        return this._imagens;
+    }
+    set imagens(novoImagens) {
+        this._imagens = novoImagens;
+    }
+
+};
+
+const projeto = new Projeto("Projeto 1", "Area principaldde nada",
+ "acao de tipo 4", "lorem ipslum aoooo", "ufal", ["pessoas", "selvagens"], "vafas", "equipe competente", "src de imagens");
+
+const projetoArr = [projeto];
+
+const getProjetos = () => projetoArr;
 
 const getProjeto = () => {
-    appendProjectsData(productDao.getProjetos());
+    appendProjectsData(getProjetos());
 }
 
 //set attributes from json to html with creating html elements
 appendProjectsData = (data) => {
     data.forEach(projeto => {
 
-        const { titulo, tipo_curso, modalidade, resumo, area_principal,
-            tipo_acao, local, espaco_realizacao, periodo_inscricao, vagas,
-            programacao, publico_alvo, carga_horaria, link_inscricao, equipe,
-            imagens} = projeto;
+        const { titulo, areaPrincipal, tipoAcao, tipo_curso, modalidade, resumo, 
+            local, publicoAlvo, vagas, equipe, imagens} = projeto;
 
         document.getElementById("titulo").innerText = titulo;
 
         document.getElementById("txtDescricao").innerText = resumo;
 
-        //set images on carousel
+        /*//set images on carousel
         var carousel = document.getElementById("carrossel");
         var slide_list = document.getElementById("slideList");
         imagens.forEach((imagem, i) => {
@@ -47,10 +127,10 @@ appendProjectsData = (data) => {
             carousel.appendChild(carr);
             slide_list.appendChild(slide);
 
-        });
+        });*/
 
 
-        publico_alvo.forEach(publico => {
+        publicoAlvo.forEach(publico => {
             console.log(publico);
         });
 
