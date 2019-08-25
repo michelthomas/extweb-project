@@ -1,24 +1,3 @@
-<!--<!DOCTYPE html>-->
-<!--<head>-->
-<!--<meta charset="utf-8">-->
-<!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
-<!--<title></title>-->
-<!--<meta name="description" content="">-->
-<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
-<!--<link rel="stylesheet" href="">-->
-<!--</head>-->
-<!--<body>-->
-<!--<div id="projectDiv">-->
-<!--<h1 id="titulo"></h1>-->
-<!--<h2 id="tipo_curso"></h2>-->
-<!--<h3 id="modalidade"></h3>-->
-<!--<p id="resumo"></p>-->
-<!--</div>-->
-<!--<script src="/client.js" defer></script>-->
-<!--</body>-->
-<!--</html>-->
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -78,13 +57,90 @@
         </div>
     </div>
 </nav>
+<br>
+<br>
+<br>
+<br>
 
 <!-- Page Content -->
 <div class="container">
 
-    <div class="row">
+    <div class="row col-lg-11 row-lg-6" id="lista" style="margin: 0 auto; float: none; margin-bottom: 10px;">
+
+        <form>
+            <table class="table table-light table-borderless">
+                <tbody>
+                    <tr>
+                        <td>
+                            <label for="filtraTitulo">Título:</label>
+                        </td>
+                        <td>
+                            <input type="text" id="filtraTitulo" class="form-control" placeholder="Título">
+                        </td>
+                        <td>
+                            <label for="filtraTipo">Tipo:</label>
+                        </td>
+                        <td>
+                            <input type="text" id="filtraTipo" class="form-control" placeholder="Tipo">
+                        </td>
+
+                        <td>
+                            <label for="filtraAreaPrincipal">Área Principal:</label>
+                        </td>
+                        <td>
+                            <input type="text" id="filtraAreaPrincipal" class="form-control" placeholder="Título">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="filtraPublicoAlvo">Público Alvo:</label>
+                        </td>
+                        <td>
+                            <input type="text" id="filtraPublicoAlvo" class="form-control" placeholder="Público Alvo">
+                        </td>
+                        <td>
+                            <label for="filtraMunicipio">Municipio:</label>
+                        </td>
+                        <td>
+                            <input type="text" id="filtraMunicipio" class="form-control" placeholder="Município">
+                        </td>
+                        <td>
+                            <label for="filtraEstado">Estado:</label>
+                        </td>
+                        <td>
+                            <input type="text" id="filtraEstado" class="form-control" placeholder="Estado">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+
+        <!--
+        <form>
+          <div class="form-row">
+            <div class="col">
+              <input type="text" class="form-control" placeholder="First name">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Last name">
+            </div>
+          </div>
+        </form>
+        -->
+        <!-- <div class="bootstrap-iso">
+         <div class="container-fluid">
+          <div class="row">
+           <div class="col-md-6 col-sm-6 col-xs-12"> 
+
+            </div>
+          </div>    
+         </div>
+        </div> -->
+
+
+
         <!-- Post Content Column -->
-        <div class="col-lg-10 row-lg-6" id="lista" style="margin: 0 auto; float: none; margin-bottom: 10px;">
+        <div class="col-lg-8 row-lg-4" id="lista" style="margin: 0 auto; float: none; margin-bottom: 10px;">
             <div class="card mb-3">
               <img src="https://i2.wp.com/emotioncard.com.br/wp-content/uploads/2017/07/mensagens-mensagens-de-bom-dia-4.jpg?fit=640%2C640&ssl=1" class="card-img-top" alt="imgs" height="400" width="100">
               <div class="card-body">
