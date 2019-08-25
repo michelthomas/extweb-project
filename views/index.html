@@ -1,24 +1,3 @@
-<!--<!DOCTYPE html>-->
-<!--<head>-->
-<!--<meta charset="utf-8">-->
-<!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
-<!--<title></title>-->
-<!--<meta name="description" content="">-->
-<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
-<!--<link rel="stylesheet" href="">-->
-<!--</head>-->
-<!--<body>-->
-<!--<div id="projectDiv">-->
-<!--<h1 id="titulo"></h1>-->
-<!--<h2 id="tipo_curso"></h2>-->
-<!--<h3 id="modalidade"></h3>-->
-<!--<p id="resumo"></p>-->
-<!--</div>-->
-<!--<script src="/client.js" defer></script>-->
-<!--</body>-->
-<!--</html>-->
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,160 +15,157 @@
         href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" 
         integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" 
         crossorigin="anonymous">
-
-
 </head>
 
 <body onload="getProjeto()">
 
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-        <a class="navbar-brand" href="#">ExtWeb</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Inicio
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#descricao">Descrição</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#localizacao">Local</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#inscricao">Inscrição</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#inscricao">Programação</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#contatos">Contatos</a>
-                </li>
-            </ul>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">ExtWeb</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Inicio
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#descricao">Descrição</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#localizacao">Local</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#inscricao">Inscrição</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#inscricao">Programação</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contatos">Contatos</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
+    <br>
+    <br>
 
-<!-- Page Content -->
-<div class="container">
+    <!-- Conteúdo da página -->
+    <div class="container">
+        <div class="row">
 
-    <div class="row">
+            <!-- Post Content Column -->
+            <div class="col-lg-12">
 
-        <!-- Post Content Column -->
-        <div class="col-lg-12">
+                <!-- Titulo -->
+                <h1 class="mt-4" id="titulo"></h1>
+                <hr>
 
-            <!-- Title -->
-            <br>
-            <br>
-            <h1 class="mt-4" id="titulo"></h1>
-            <br>
+                <!-- Imagens no Carousel -->
+                <div id="carouselExampleIndicators" class="carousel slide w-80" data-ride="carousel">
+                    <ol class="carousel-indicators" id="slideList">
+                    </ol>
+                    <div class="carousel-inner" id="carrossel">
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+                <hr>
 
-            <!-- Date/Time -->
-            <p>Data de cadastro: 12/08/2019</p>
+                <!-- Descricao -->
+                <div id="descricao">
+                    <h2>Descrição</h2>
+                    <p id=txtDescricao style="text-align: justify;"></p>
+                </div>
+                <hr>
 
-            <hr>
+                <!-- Público Alvo -->
+                <div id="publicoAlvo">
+                    <h2>Público Alvo</h2>
+                    <ul id="listPublicoAlvo">
+                    </ul>
+                </div>
+                <hr>
 
-            <!-- Carousel Images -->
-            <div id="carouselExampleIndicators" class="carousel slide w-80" data-ride="carousel">
-                <ol class="carousel-indicators" id="slideList">
-                    <!-- <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li> -->
-                </ol>
-                <div class="carousel-inner" id="carrossel">
-                    <!-- <div class="carousel-item active">
-                        <img class="d-block w-100" src="http://placehold.it/1000x400" alt="First slide">
+                <!-- Localização -->
+                <div id="localizacao">
+                    <h2>Localização</h2>
+                    <ul id="listLocalizacao">
+                        <li id="espacoLocalizacao"></li>
+                        <li id="cidadeEstadoLocalizacao"></li>
+                    </ul>
+                </div>
+                <hr>
+
+                <!-- Informações de Inscrição -->
+                <div id="inscricao">
+                    <h2>Inscrição</h2>
+                    <ul id="listInscricao">
+                        <li id="periodoInscricao"></li>
+                        <li id="vagasDisponiveis"></li>
+                        <li id="linkInscricao"></li>
+                    </ul>
+                </div>
+                <hr>
+
+                <!-- Cronograma -->
+                <div id="cronograma">
+                    <h2>Programação</h2>
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th scope="col">Data</th>
+                            <th scope="col">Horário</th>
+                            <th scope="col">Atividades</th>
+                        </tr>
+                        </thead>
+                        <tbody id="listCronograma">
+                        <!-- <tr>
+                            <td>16/07/2019</td>
+                            <td>18:00 às 22:00</td>
+                            <td>Palestra</td>
+                        </tr> -->
+                        </tbody>
+                    </table>
+                </div>
+                <hr>
+
+                <!-- Contatos -->
+                <div id="contatos">
+                    <h2>Contato</h2>
+                    <!-- <div>
+                        <h5 id="nomeContato">Márcio</h5>
+                        <ul id="listContato">
+                            <li><b>Categoria:</b> Discente</li>
+                            <li><b>Função:</b> 1</li>
+                            <li><b>E-mail: <a href="mailto:marcioh.ikke@gmail.com">marcioh.ikke@gmail.com</a></b></li>
+                        </ul>
                     </div> -->
                 </div>
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-            <hr>
-
-            <div id="descricao">
-                <h2>Descrição</h2>
-                <p id=txtDescricao style="text-align: justify;"></p>
-            </div>
-            <hr>
-
-            <div id="publicoAlvo">
-                <h2>Público Alvo</h2>
-                <ul id="listPublicoAlvo">
-                </ul>
-            </div>
-            <hr>
-
-            <div id="localizacao">
-                <h2>Localização</h2>
-                <ul id="listLocalizacao">
-                    <li><b>Espaço:</b> Lorem ipsum dolor sit amet</li>
-                    <li><b>Cidade/Estado:</b> Lorem ipsum dolor sit amet</li>
-                </ul>
-            </div>
-            <hr>
-
-            <div id="inscricao">
-                <h2>Inscrição</h2>
-                <ul id="listInscricao">
-                    <li><b>De:</b> 12/08/2019 <b>à</b> 12/08/2019</li>
-                    <li><b>Vagas Disponíveis:</b> 1</li>
-                    <li><b>Inscreva-se <a href="https://www.google.com">aqui</a></b></li>
-                </ul>
-            </div>
-            <hr>
-
-            <div id="cronograma">
-                <h2>Programação</h2>
-                <table class="table table-bordered">
-                    <thead>
-                    <tr>
-                        <th scope="col">Data</th>
-                        <th scope="col">Horário</th>
-                        <th scope="col">Atividades</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr id="listCronograma">
-                        <td>16/07/2019</td>
-                        <td>18:00 às 22:00</td>
-                        <td>Palestra</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-            <hr>
-
-            <div id="contatos">
-                <h2>Contato</h2>
-                <h5 id="nomeContato">Márcio</h5>
-                <ul id="listContato">
-                    <li><b>Categoria:</b> Discente</li>
-                    <li><b>Função:</b> 1</li>
-                    <li><b>E-mail: <a href="mailto:marcioh.ikke@gmail.com">marcioh.ikke@gmail.com</a></b></li>
-                </ul>
             </div>
         </div>
     </div>
-</div>
-<!-- Footer -->
-<footer class="py-5 bg-dark">
-    <div class="">
-        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
-    </div>
-</footer>
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+        <div class="">
+            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+        </div>
+    </footer>
+
+
 
     <!-- Bootstrap core JavaScript -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
