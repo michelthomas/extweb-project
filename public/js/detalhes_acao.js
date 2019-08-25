@@ -5,13 +5,15 @@ const carregarAcao = () => {
 
     const acao = acaoArr.find((acao) => acao.id_acao === acao_id);
 
+    localStorage.setItem("acao", acao);
+
     appendAcao(acao);
 }
 
 const appendAcao = (acao) => {
-    const {id_acao, titulo, area_principal, tipo_acao, local, espaco_realizacao,
-        tipo_curso, modalidade, resumo, periodo_inscricao, vagas, programacao, publico_alvo,
-        carga_horaria, equipe, imagens} = acao;
+    const {id_acao, titulo, area_principal, tipo_acao, local,
+        espaco_realizacao, resumo, periodo_inscricao, vagas,
+        programacao, publico_alvo, equipe, imagens} = acao;
 
     // TODO id_acao ???
     console.log(JSON.stringify(acao));
@@ -132,49 +134,49 @@ const appendAcao = (acao) => {
     });
 }
 
-const calcularNumeroDeParticipantes = (id) => {
-    const acao = acaoArr.find((acao) => acao.id_acao === id);
+const calcularNumeroDeParticipantes = () => {
+    const acao = localStorage.getItem("acao");
     return acao.equipe.length;
 }
 
 // Por acao?
-const calcularNumeroDeParticipantesDiscentes = (id) => {
-    const acao = acaoArr.find(acao => acao.id_acao === id);
+const calcularNumeroDeParticipantesDiscentes = () => {
+    const acao = localStorage.getItem("acao");
     return acao.equipe.filter(pessoa => pessoa.categoria === "Discente").length;
 }
 
-const calcularNumeroDeParticipantesDocentes = (id) => {
-    const acao = acaoArr.find(acao => acao.id_acao === id);
+const calcularNumeroDeParticipantesDocentes = () => {
+    const acao = localStorage.getItem("acao");
     return acao.equipe.filter(pessoa => pessoa.categoria === "Docente").length;
 }
 
 // Só discente recebe bolsa?
-const calcularNumeroDeBolsas = (id) => {
-    return calcularNumeroDeParticipantesDiscentes(id);
+const calcularNumeroDeBolsas = () => {
+    return calcularNumeroDeParticipantesDiscentes();
 }
 
-const calcularValorTotalPago = (id) => {
+const calcularValorTotalPago = () => {
     // TODO Verificar esse preco. É algo fixo? É por acao? Se for por acao, acrescentar no json, ou solicitar agr(prompt)
     const precoBolsa = 0;
-    return calcularNumeroDeBolsas(id) * precoBolsa;
+    return calcularNumeroDeBolsas() * precoBolsa;
 }
 
 // Inscrição de quem? Da equipe? Se for de um participante, n precisa disso aqui, somente mexer nas vagas
-const realizarInscricao = (id) => {
+const realizarInscricao = () => {
     const nome = prompt("Digite seu nome:");
     const categoria = prompt("Digite sua categoria:");
     const funcao = prompt("Digite sua funcao:");
     const email = prompt("Digite seu email:");
 
-    const acao = acaoArr.find(acao => acao.id_acao === id);
+    const acao = localStorage.getItem("acao");
 
     acao.equipe.push({nome, categoria, funcao, email});
 
 }
 
 // o que isso faz? Deve ser para mexer no DOM...
-const atualizarInscricoes = (id) => {
-    const acao = acaoArr.find(acao => acao.id_acao === id);
+const atualizarInscricoes = () => {
+    const acao = localStorage.getItem("acao");
 
     acao.vagas.quantidade_total--;
 

@@ -1,10 +1,10 @@
 //set attributes from json to html with creating html elements
-const appendProjectsData = (data) => {
+const appendTodasAcoes = (data) => {
     data.forEach(acao => appendAcao(acao));
 }
 
-const carregarTodosAcoes = () => {
-    appendProjectsData(acaoArr);
+const carregarTodasAcoes = () => {
+    appendTodasAcoes(acaoArr);
 }
 
 // TODO Filtrar (?)
