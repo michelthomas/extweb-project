@@ -55,7 +55,6 @@ const appendAcao = (acao) => {
 
      const informacoes_gerais = document.getElementById("informacoes_gerais");
      const tipo = document.createElement("li");
-     const modalidade = document.createElement("li");
      const numero_participantes = document.createElement("li");
      const numero_discentes = document.createElement("li");
      const numero_docentes = document.createElement("li");
@@ -164,30 +163,29 @@ const appendAcao = (acao) => {
     });
 }
 
+//calcula o número total de participantes da ação
 const calcularNumeroDeParticipantes = () => {
     const acao = JSON.parse(localStorage.getItem("acao"));
 
     return acao.equipe.length;
 }
 
-// Por acao?
+//calcula o número total de participantes discentes da ação
 const calcularNumeroDeParticipantesDiscentes = () => {
     const acao = JSON.parse(localStorage.getItem("acao"));
     return acao.equipe.filter(pessoa => pessoa.categoria === "Discente").length;
 }
 
+//calcula o número total de participantes docentes da ação
 const calcularNumeroDeParticipantesDocentes = () => {
     const acao = JSON.parse(localStorage.getItem("acao"));
     return acao.equipe.filter(pessoa => pessoa.categoria === "Docente").length;
 }
 
-const calcularNumeroDeBolsas = () => {
-    return calcularNumeroDeParticipantesDiscentes();
-}
-
+//calcula o valor total das bolsas pagas aos discentes
 const calcularValorTotalPago = () => {
     const precoBolsa = 400;
-    return calcularNumeroDeBolsas() * precoBolsa;
+    return calcularNumeroDeParticipantesDiscentes() * precoBolsa;
 }
 
 //realiza a inscrição do usuário
@@ -200,7 +198,7 @@ const realizarInscricao = () => {
     alert(nome + ", sua inscrição com o e-mail " + email + " foi realizada com sucesso!");
 }
 
-//atualiza inscrições
+//atualiza o número de vagas disponíveis
 const atualizarInscricoes = () => {
     var vagas_disponiveis = parseInt(localStorage.getItem("vagas_disponiveis"));        //pega as vagas disponiveis do logalStorage
 
