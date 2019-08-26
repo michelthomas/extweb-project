@@ -67,8 +67,6 @@ const carregarTodasAcoes = () => {
 
 const filtrarAcao = () => {
     const filtro = document.querySelector('input[type=radio][name="filtros"]:checked').value;
-    
-    console.log("filtro = " + filtro);
 
     if(filtro) {
         const valor_filtro = document.getElementById(filtro + "_filtro").value;
@@ -76,12 +74,9 @@ const filtrarAcao = () => {
         console.log("valor_filtro = " + valor_filtro);
 
         const acoes_filtradas = acaoArr.filter(acao => {
-            console.log("acao_titulo = " + acao[filtro]);
-            console.log(acao[filtro].toLowerCase().includes(valor_filtro.toLowerCase().trim()));
             return acao[filtro].toLowerCase().includes(valor_filtro.toLowerCase().trim())
         });
 
-        console.log("acoes_filtradas = " + JSON.stringify(acoes_filtradas));
         appendAcoes(acoes_filtradas);
     } else {
         console.log("filtro invalido: " + filtro);
@@ -90,7 +85,6 @@ const filtrarAcao = () => {
 }
 
 const selecionarAcao = (id) => {
-    console.log("acao_id = " + id);
     localStorage.setItem("id", id);
 
     window.location.assign("visualizar_acao.html");
