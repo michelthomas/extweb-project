@@ -16,7 +16,7 @@
 
     </head>
 
-    <body>
+    <body onload="carregarTodasAcoes()">
 
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -62,53 +62,58 @@
 
             <div class="row col-lg-11 row-lg-6" id="lista" style="margin: 0 auto; float: none; margin-bottom: 10px;">
 
-                <form>
-                    <table class="table table-light table-borderless">
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <label for="filtraTitulo">Título:</label>
-                                </td>
-                                <td>
-                                    <input type="text" id="filtraTitulo" class="form-control" placeholder="Título">
-                                </td>
-                                <td>
-                                    <label for="filtraTipo">Tipo:</label>
-                                </td>
-                                <td>
-                                    <input type="text" id="filtraTipo" class="form-control" placeholder="Tipo">
-                                </td>
+                <table class="table table-light table-borderless">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input type="radio" name="filtros" value="titulo">
+                                <label for="filtraTitulo">Título:</label>
+                            </td>
+                            <td>
+                                <input type="text" id="titulo_filtro" class="form-control" placeholder="Título">
+                            </td>
+                            <td>
+                                <input type="radio" name="filtros" value="tipo">
+                                <label for="filtraTipo">Tipo:</label>
+                            </td>
+                            <td>
+                                <input type="text" id="tipo_filtro" class="form-control" placeholder="Tipo">
+                            </td>
 
-                                <td>
-                                    <label for="filtraAreaPrincipal">Área Principal:</label>
-                                </td>
-                                <td>
-                                    <input type="text" id="filtraAreaPrincipal" class="form-control" placeholder="Título">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label for="filtraPublicoAlvo">Público Alvo:</label>
-                                </td>
-                                <td>
-                                    <input type="text" id="filtraPublicoAlvo" class="form-control" placeholder="Público Alvo">
-                                </td>
-                                <td>
-                                    <label for="filtraMunicipio">Municipio:</label>
-                                </td>
-                                <td>
-                                    <input type="text" id="filtraMunicipio" class="form-control" placeholder="Município">
-                                </td>
-                                <td>
-                                    <label for="filtraEstado">Estado:</label>
-                                </td>
-                                <td>
-                                    <input type="text" id="filtraEstado" class="form-control" placeholder="Estado">
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </form>
+                            <td>
+                                <input type="radio" name="filtros" value="area_principal">
+                                <label for="filtraAreaPrincipal">Área Principal:</label>
+                            </td>
+                            <td>
+                                <input type="text" id="area_principal_filtro" class="form-control" placeholder="Título">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="radio" name="filtros" value="publico_alvo">
+                                <label for="filtraPublicoAlvo">Público Alvo:</label>
+                            </td>
+                            <td>
+                                <input type="text" id="publico_alvo_filtro" class="form-control" placeholder="Público Alvo">
+                            </td>
+                            <td>
+                                <input type="radio" name="filtros" value="local">
+                                <label for="filtraMunicipio">Municipio:</label>
+                            </td>
+                            <td>
+                                <input type="text" id="local_filtro" class="form-control" placeholder="Município">
+                            </td>
+                            <td>
+                                <input type="radio" name="filtros" value="local">
+                                <label for="filtraEstado">Estado:</label>
+                            </td>
+                            <td>
+                                <input type="text" id="local_filtro" class="form-control" placeholder="Estado">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <input type="button" onclick="filtrarAcao()" value="Filtrar">
 
                 <!--
                 <form>
@@ -180,6 +185,7 @@
             crossorigin="anonymous">
         </script>
         <script src="../public/js/acao_dao.js" defer></script>
+        <script src="../public/js/detalhes_acao.js" defer></script>
         <script src="../public/js/listagem_acao.js" defer></script>
     </body>
 
