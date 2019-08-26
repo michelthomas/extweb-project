@@ -16,7 +16,9 @@ const appendAcao = (acao) => {
         programacao, publico_alvo, equipe, imagens} = acao;
 
     // TODO id_acao ???
-    console.log(JSON.stringify(acao));
+    // console.log(JSON.stringify(acao));
+    // localStorage.setItem("acao", acao);
+
 
     document.getElementById("titulo").innerText = titulo;
 
@@ -70,17 +72,24 @@ const appendAcao = (acao) => {
 
     document.getElementById("periodo_inscricao").innerText = "De " + periodo_inscricao.data_inicial + " à " + periodo_inscricao.data_final;
     var vagas_disponiveis =  vagas.quantidade_total - vagas.quantidade_ocupada;
+    localStorage.setItem("vagas_disponiveis", vagas_disponiveis);
+
     document.getElementById("vagas_disponiveis").innerText = "Vagas Disponíveis: " + vagas_disponiveis;
 
     if (vagas_disponiveis > 0)
     {
         const div_inscricao = document.getElementById("div_inscricao");
+        const div_btn = document.createElement("div");
         const btn = document.createElement("button");
+
+        div_btn.setAttribute("id", "div_btn");
         btn.classList.add("btn");
         btn.classList.add("btn-dark");
+        btn.setAttribute("onclick", "realizarInscricao()");
         btn.innerText = "Realizar Inscrição";
 
-        div_inscricao.appendChild(btn);
+        div_btn.appendChild(btn);
+        div_inscricao.appendChild(div_btn);
 
     }
 
@@ -150,7 +159,7 @@ const calcularNumeroDeParticipantesDocentes = () => {
     return acao.equipe.filter(pessoa => pessoa.categoria === "Docente").length;
 }
 
-// Só discente recebe bolsa?
+// Só discente recebe bolsa? É
 const calcularNumeroDeBolsas = () => {
     return calcularNumeroDeParticipantesDiscentes();
 }
@@ -164,21 +173,29 @@ const calcularValorTotalPago = () => {
 // Inscrição de quem? Da equipe? Se for de um participante, n precisa disso aqui, somente mexer nas vagas
 const realizarInscricao = () => {
     const nome = prompt("Digite seu nome:");
-    const categoria = prompt("Digite sua categoria:");
-    const funcao = prompt("Digite sua funcao:");
     const email = prompt("Digite seu email:");
 
-    const acao = localStorage.getItem("acao");
+    atualizarInscricoes();
 
-    acao.equipe.push({nome, categoria, funcao, email});
-
+    alert(nome + ", sua inscrição com o e-mail " + email + " foi realizada com sucesso!");
 }
 
 // o que isso faz? Deve ser para mexer no DOM...
 const atualizarInscricoes = () => {
-    const acao = localStorage.getItem("acao");
+    var vagas_disponiveis = parseInt(localStorage.getItem("vagas_disponiveis"));
 
-    acao.vagas.quantidade_total--;
+    // acao.vagas.quantidade_ocupada++;
 
-    appendAcao(acao);
+    vagas_disponiveis = vagas_disponiveis - 1;
+
+    localStorage.setItem("vagas_disponiveis", vagas_disponiveis);
+
+    document.getElementById("vagas_disponiveis").innerText = "Vagas Disponíveis: " + vagas_disponiveis;
+
+    if (vagas_disponiveis <= 0)
+    {
+        document.getElementById("div_btn").innerText = '';   
+    }
+
+
 }
