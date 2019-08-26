@@ -53,16 +53,10 @@ const acoesJson = [
        ],
        "imagens":[
           {
-             "link":"../public/img/3.jpg"
+             "link":"../public/img/servsocial1.jpg"
           },
           {
-             "link":"http://www.criatives.com.br/wp-content/uploads/2018/01/26755627_1356382461136968_1608361180_n.png"
-          },
-          {
-             "link":"https://www.criatives.com.br/wp-content/uploads/2018/01/26696925_1356381117803769_272771002_n.png"
-          },
-          {
-             "link":"https://img.buzzfeed.com/buzzfeed-static/static/2017-08/9/17/campaign_images/buzzfeed-prod-fastlane-03/13-provas-de-que-nao-ha-ninguem-mais-solteiro-que-2-21057-1502313426-0_dblbig.jpg"
+             "link":"../public/img/servsocial2.jpg"
           }
        ]
     },
@@ -78,19 +72,19 @@ const acoesJson = [
       "titulo":"Aplicações de Robótica Educacional para Inclusão Digital",
       "resumo":"Esta proposta é uma continuação do projeto PAINTER homônimo que já atua na Escola Estadual Edmilson de Vasconcelos Pontes. Este projeto visa oferecer treinamento em raciocínio lógico e introduzir conceitos básicos de computação para estudantes e profissionais com formação de nível médio ou nível fundamental, através de atividades lúdicas, utilizando como ferramenta básica a robótica. O objetivo principal é oferecer um ambiente de trabalho extensionista na Universidade Federal de Alagoas, que viabilize a inclusão digital e social, por intermédio da troca de conhecimento entre o estudante matriculado nesta instituição e o participante externo à UFAL, principalmente quanto a utilização das Tecnologias de Informação e Comunicação, que tanto interferem e mediam os processos informacionais e comunicativos exigidos hoje pela sociedade (Ex., Internet, redes sociais, editores de texto, pesquisa, transações comerciais, dispositivos móveis etc). Espera-se que, ao final das ações aqui propostas, o participante externo entenda e saiba utilizar as TICs disponíveis a sua realidade de forma adequada. Já os participantes internos, que saibam aplicar corretamente os conceitos adquiridos nas disciplinas de seu curso e principalmente percebam como estas disciplinas se relacionam para a construção do conhecimento, e sintam-se capazes de se deparar com os problemas sociais atuais e de encontrar soluções factíveis para sua solução.",
       "periodo_inscricao":{
-         "data_inicial":"01/07/2019",
-         "data_final":"16/07/2019"
+         "data_inicial":"02/07/2019",
+         "data_final":"20/07/2019"
       },
       "vagas":{
-         "quantidade_total":700,
-         "quantidade_ocupada":500
+         "quantidade_total":300,
+         "quantidade_ocupada":250
       },
       "programacao":[
          {
-            "data":"16/07/2019",
-            "horario_inicial":"18:00",
-            "horario_final":"22:00",
-            "atividades":"Palestras acerca da política nacional de sangue e hemoderivados e a atuação do serviço social"
+            "data":"23/07/2019",
+            "horario_inicial":"14:00",
+            "horario_final":"19:00",
+            "atividades":"Aplicações de Robótica para Incusão Digital na Escola Edmilson Vasconcelos"
          }
       ],
       "publico_alvo":[
@@ -99,39 +93,103 @@ const acoesJson = [
       "link_inscricao":"google.com",
       "equipe":[
          {
-            "nome":"Fernanda Santos Bezerra",
+            "nome":"Jhonattan Alves",
             "categoria":"Discente",
             "funcao":"Palestrante",
-            "email":"feehsantos802@gmail.com"
+            "email":"john1340@gmail.com"
          },
          {
-            "nome":"Sthefany Raffaela Palagani",
+            "nome":"Luana Oliveira",
             "categoria":"Discente",
             "funcao":"Palestrante",
-            "email":"tete_raffaela@hotmail.com"
+            "email":"luana-oli@hotmail.com"
          },
          {
-            "nome":"Josimeire de Omena Leite",
+            "nome":"Raquel Santos",
             "categoria":"Docente",
             "funcao":"Coordenadora",
-            "email":"meireomena@hotmail.com"
+            "email":"raquelsnt@hotmail.com"
          }
       ],
       "imagens":[
          {
-            "link":"../public/img/3.jpg"
+            "link":"../public/img/robotica1.jpg"
          },
          {
-            "link":"http://www.criatives.com.br/wp-content/uploads/2018/01/26755627_1356382461136968_1608361180_n.png"
+            "link":"../public/img/robotica2.jpg"
          },
          {
-            "link":"https://www.criatives.com.br/wp-content/uploads/2018/01/26696925_1356381117803769_272771002_n.png"
-         },
-         {
-            "link":"https://img.buzzfeed.com/buzzfeed-static/static/2017-08/9/17/campaign_images/buzzfeed-prod-fastlane-03/13-provas-de-que-nao-ha-ninguem-mais-solteiro-que-2-21057-1502313426-0_dblbig.jpg"
+            "link":"../public/img/robotica3.jpeg"
          }
       ]
    },
+       {
+       "id_acao":3,
+       "area_principal":"Educação",
+       "tipo_acao":"Projeto",
+       "local":{
+          "municipio":"Maceió",
+          "estado":"Alagoas"
+       },
+       "espaco_realizacao":"Escola Olavo Bilac",
+       "titulo":"Libras na escola",
+       "resumo":"O projeto de extensão “Libras na Escola” tem por objetivo principal difundir a Libras nas escolas públicas municipais e estaduais de Alagoas, sobretudo, naquela onde há surdos matriculados, portanto, consiste numa proposta de ensino de Libras para todos os alunos das escolas participantes, por meio da ministração de oficinas e atividades lúdicas in loco.",
+       "periodo_inscricao":{
+          "data_inicial":"15/07/2019",
+          "data_final":"01/08/2019"
+       },
+       "vagas":{
+          "quantidade_total":35,
+          "quantidade_ocupada":34
+       },
+       "programacao":[
+          {
+             "data":"20/07/2019",
+             "horario_inicial":"13:00",
+             "horario_final":"23:00",
+             "atividades":"Palestras sobre libras"
+          }
+       ],
+       "publico_alvo":[
+          "Estudantes",
+          "Discentes do curso de Letras Libras"
+       ],
+       "link_inscricao":"google.com",
+       "equipe":[
+          {
+             "nome":"Gessica Morgana Batista Correia",
+             "categoria":"Discente",
+             "funcao":"colaborador",
+             "email":"morganahermione@hotmail.com"
+          },
+          {
+             "nome":"Maria da Conceicao Alves de Almeira",
+             "categoria":"Discente",
+             "funcao":"colaborador",
+             "email":"mceika@hotmail.com"
+          },
+          {
+             "nome":"Thais Monick Lima Monteiro",
+             "categoria":"Docente",
+             "funcao":"Coordenadora",
+             "email":"thaismonick101@gmail.com"
+          }
+       ],
+       "imagens":[
+          {
+             "link":"../public/img/libras1.jpg"
+          },
+          {
+             "link":"../public//img/libras2.jpeg"
+          },
+          {
+             "link":"../public//img/libras3.jpg"
+          },
+          {
+             "link":"../public//img/libras1.jpg"
+          }
+       ]
+    },
  ];
 
 const acaoArr = JSON.parse(JSON.stringify(acoesJson));

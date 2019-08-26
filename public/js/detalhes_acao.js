@@ -10,7 +10,7 @@ const carregarAcao = () => {
     appendAcao(acao);
 }
 
-// Responsável por escrever html dinâmico com os dados que vem do JSON
+// Responsável por inserir elementos com as informações da ação de forma dinâmica no html
 const appendAcao = (acao) => {
     
     // Transforma dados do json em constantes
@@ -21,15 +21,12 @@ const appendAcao = (acao) => {
     // Adiciona a constante titulo dentro da tag html de id "titulo"
     document.getElementById("titulo").innerText = titulo;
 
-    // document.getElementById("area_principal").innerText = "Área: " + area_principal;
-    // document.getElementById("tipo_acao").innerText = "Tipo: " + tipo_acao;
-
     // Inserindo imagens e slide no carousel
     const carousel = document.getElementById("carrossel");        // captura a div "carrossel"
     const slide_list = document.getElementById("slideList");     // captura a div "slideList"
 
     imagens.forEach((imagem, i) => {
-       const carr = document.createElement("div");
+       const carr = document.createElement("div");          //cria um elemento tipo "div"
        const slide = document.createElement("li");
 
        // Definindo atributos para carr e slide
@@ -61,6 +58,7 @@ const appendAcao = (acao) => {
 
     });
 
+    //bloco das informações gerais do projeto
     const informacoes_gerais = document.getElementById("informacoes_gerais");
     const tipo = document.createElement("li");
     const numero_participantes = document.createElement("li");
