@@ -61,32 +61,29 @@ const appendAcao = (acao) => {
 
     });
 
-     const informacoes_gerais = document.getElementById("informacoes_gerais");
-     const tipo = document.createElement("li");
-     const numero_participantes = document.createElement("li");
-     const numero_discentes = document.createElement("li");
-     const numero_docentes = document.createElement("li");
-     const valor_bolsas = document.createElement("li");
+    const informacoes_gerais = document.getElementById("informacoes_gerais");
+    const tipo = document.createElement("li");
+    const numero_participantes = document.createElement("li");
+    const numero_discentes = document.createElement("li");
+    const numero_docentes = document.createElement("li");
+    const valor_bolsas = document.createElement("li");
 
-     const n_participantes = calcularNumeroDeParticipantes();
-     const n_discentes = calcularNumeroDeParticipantesDiscentes();
-     const n_docentes = calcularNumeroDeParticipantesDocentes();
-     const v_bolsas = calcularValorTotalPago();
+    const n_participantes = calcularNumeroDeParticipantes();
+    const n_discentes = calcularNumeroDeParticipantesDiscentes();
+    const n_docentes = calcularNumeroDeParticipantesDocentes();
+    const v_bolsas = calcularValorTotalPago();
 
-     tipo.innerText = "Tipo: " + tipo_acao;
-     numero_participantes.innerText = "Número de Participantes: " + n_participantes;
-     numero_discentes.innerText = "Número de discentes: " + n_discentes;
-     numero_docentes.innerText = "Número de docentes: " + n_docentes;
-     valor_bolsas.innerText = "Valor Total das bolsas: R$" + v_bolsas + ",00";
+    tipo.innerText = "Tipo: " + tipo_acao;
+    numero_participantes.innerText = "Número de Participantes: " + n_participantes;
+    numero_discentes.innerText = "Número de discentes: " + n_discentes;
+    numero_docentes.innerText = "Número de docentes: " + n_docentes;
+    valor_bolsas.innerText = "Valor Total das bolsas: R$" + v_bolsas + ",00";
 
-     informacoes_gerais.appendChild(tipo);
-     informacoes_gerais.appendChild(numero_participantes);
-     informacoes_gerais.appendChild(numero_discentes);
-     informacoes_gerais.appendChild(numero_docentes);
-     informacoes_gerais.appendChild(valor_bolsas); 
-
-    // document.getElementById("modalidade").innerText = modalidade;
-
+    informacoes_gerais.appendChild(tipo);
+    informacoes_gerais.appendChild(numero_participantes);
+    informacoes_gerais.appendChild(numero_discentes);
+    informacoes_gerais.appendChild(numero_docentes);
+    informacoes_gerais.appendChild(valor_bolsas); 
 
     document.getElementById("resumo").innerText = resumo;
 
@@ -142,8 +139,6 @@ const appendAcao = (acao) => {
         list_programacao.appendChild(tr);
     });
 
-    //document.getElementById("carga_horaria").innerText = carga_horaria;
-
     const contatos = document.getElementById("contatos");
     
     equipe.map((pessoa) => {
@@ -172,26 +167,26 @@ const appendAcao = (acao) => {
     });
 }
 
-//calcula o número total de participantes da ação
+// Calcula o número total de participantes da ação
 const calcularNumeroDeParticipantes = () => {
     const acao = JSON.parse(localStorage.getItem("acao"));
 
     return acao.equipe.length;
 }
 
-//calcula o número total de participantes discentes da ação
+// Calcula o número total de participantes discentes da ação
 const calcularNumeroDeParticipantesDiscentes = () => {
     const acao = JSON.parse(localStorage.getItem("acao"));
     return acao.equipe.filter(pessoa => pessoa.categoria === "Discente").length;
 }
 
-//calcula o número total de participantes docentes da ação
+// Calcula o número total de participantes docentes da ação
 const calcularNumeroDeParticipantesDocentes = () => {
     const acao = JSON.parse(localStorage.getItem("acao"));
     return acao.equipe.filter(pessoa => pessoa.categoria === "Docente").length;
 }
 
-//calcula o valor total das bolsas pagas aos discentes
+// Calcula o valor total das bolsas pagas aos discentes
 const calcularValorTotalPago = () => {
     const precoBolsa = 400;
     return calcularNumeroDeParticipantesDiscentes() * precoBolsa;
@@ -199,6 +194,7 @@ const calcularValorTotalPago = () => {
 
 // Realiza a inscrição do usuário
 const realizarInscricao = () => {
+    
     const acao = JSON.parse(localStorage.getItem("acao"));
 
     if (acao.vagas.quantidade_ocupada < acao.vagas.quantidade_total) {
@@ -220,7 +216,7 @@ const realizarInscricao = () => {
     }
 }
 
-// Atualiza o elemento das inscrições
+// Atualiza o elemento das vagas disponíveis
 const atualizarElementoInscricoes = () => {
 
     const acao = JSON.parse(localStorage.getItem("acao"));
