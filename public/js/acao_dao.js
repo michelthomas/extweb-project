@@ -1,4 +1,4 @@
-const acoesJson = [
+const acoesJson = [     //constante com os dados das ações
     {
        "id_acao":1,
        "area_principal":"Saúde",
@@ -184,12 +184,9 @@ const acoesJson = [
           },
           {
              "link":"../public//img/libras3.jpg"
-          },
-          {
-             "link":"../public//img/libras1.jpg"
           }
        ]
     },
  ];
 
-const acaoArr = JSON.parse(JSON.stringify(acoesJson));
+const acaoArr = JSON.parse(JSON.stringify(acoesJson));      //constante transformada em json com os dados das ações

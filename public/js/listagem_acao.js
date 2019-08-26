@@ -34,50 +34,36 @@ const appendAct = (acao) => {
     lista_cards_acoes.appendChild(container);
 
 }
-/*
-<div class="card mb-3" onclick="selecionarAcao(1)">
-    <img src="https://i2.wp.com/emotioncard.com.br/wp-content/uploads/2017/07/mensagens-mensagens-de-bom-dia-4.jpg?fit=640%2C640&ssl=1" class="card-img-top" alt="imgs" height="400" width="100">
-    <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-    </div>
-</div>
-*/
-// white-space: nowrap; 
-//     width: 12em; 
-//     overflow: hidden;
-//     text-overflow: ellipsis;
 
 //set attributes from json to html with creating html elements
 const appendAcoes = (data) => {
 
-    const lista_cards_acoes = document.getElementById("lista");
+    const lista_cards_acoes = document.getElementById("lista");         //
 
-    while (lista_cards_acoes.firstChild) {
+    while (lista_cards_acoes.firstChild) {      //remove todos os elementos filhos do elemento da lista de projetos
         lista_cards_acoes.firstChild.remove();
     }
 
     data.forEach(acao => appendAct(acao));
 }
 
+//carrega todas as ações do array de ações
 const carregarTodasAcoes = () => {
     appendAcoes(acaoArr);
 }
 
+//filtragem das ações
 const filtrarAcao = () => {
-    const filtro = document.querySelector('input[type=radio][name="filtros"]:checked').value;
+    const filtro = document.querySelector('input[type=radio][name="filtros"]:checked').value;       //pega o valor do botão de rádio selecionado
 
     if(filtro) {
-        const valor_filtro = document.getElementById(filtro + "_filtro").value;
+        const valor_filtro = document.getElementById(filtro + "_filtro").value;         //pega o elemento input com o nome do botão de rádio + filtro
 
-        console.log("valor_filtro = " + valor_filtro);
-
-        const acoes_filtradas = acaoArr.filter(acao => {
-            return acao[filtro].toLowerCase().includes(valor_filtro.toLowerCase().trim())
+        const acoes_filtradas = acaoArr.filter(acao => {        //
+            return acao[filtro].toLowerCase().includes(valor_filtro.toLowerCase().trim());          //retorna a ação, caso a string filtrada corresponda à do campo da ação
         });
 
-        appendAcoes(acoes_filtradas);
+        appendAcoes(acoes_filtradas);           //pega a ações retornadas, em caso da filtragem certa
     } else {
         console.log("filtro invalido: " + filtro);
     }
@@ -85,9 +71,9 @@ const filtrarAcao = () => {
 }
 
 const selecionarAcao = (id) => {
-    localStorage.setItem("id", id);
+    localStorage.setItem("id", id);     //coloca o id da ação no localStorage (dado persiste)
 
-    window.location.assign("visualizar_acao.html");
+    window.location.assign("visualizar_acao.html");             //chama a página de visualizar ação
 }
 
-const calcularNumeroTotalDeAcoes = () => (acaoArr.length)
+const calcularNumeroTotalDeAcoes = () => (acaoArr.length);
