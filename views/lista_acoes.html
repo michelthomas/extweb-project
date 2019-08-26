@@ -22,34 +22,6 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
             <div class="container">
                 <a class="navbar-brand" href="#">ExtWeb</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Inicio
-                                <span class="sr-only">(current)</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#descricao">Descrição</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#localizacao">Local</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#inscricao">Inscrição</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#inscricao">Programação</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#contatos">Contatos</a>
-                        </li>
-                    </ul>
-                </div>
             </div>
         </nav>
         <br>
@@ -60,7 +32,7 @@
         <!-- Page Content -->
         <div class="container">
 
-            <div class="row col-lg-11 row-lg-6" id="lista" style="margin: 0 auto; float: none; margin-bottom: 10px;">
+            <div class="row col-lg-11 row-lg-6" id="filther" style="margin: 0 auto; float: none; margin-bottom: 10px;">
 
                 <table class="table table-light table-borderless">
                     <tbody>
@@ -88,7 +60,7 @@
                                 <input type="text" id="area_principal_filtro" class="form-control" placeholder="Título">
                             </td>
                         </tr>
-                        <tr>
+                        <!-- <tr>
                             <td>
                                 <input type="radio" name="filtros" value="publico_alvo">
                                 <label for="filtraPublicoAlvo">Público Alvo:</label>
@@ -110,54 +82,35 @@
                             <td>
                                 <input type="text" id="local_filtro" class="form-control" placeholder="Estado">
                             </td>
+                        </tr> -->
+                        <tr>
+                            <td>
+                                <input type="button" class="btn btn-dark" onclick="filtrarAcao()" value="Filtrar">                
+                            </td>
                         </tr>
                     </tbody>
                 </table>
-                <input type="button" onclick="filtrarAcao()" value="Filtrar">
-
-                <!--
-                <form>
-                <div class="form-row">
-                    <div class="col">
-                    <input type="text" class="form-control" placeholder="First name">
-                    </div>
-                    <div class="col">
-                    <input type="text" class="form-control" placeholder="Last name">
-                    </div>
-                </div>
-                </form>
-                -->
-                <!-- <div class="bootstrap-iso">
-                <div class="container-fluid">
-                <div class="row">
-                <div class="col-md-6 col-sm-6 col-xs-12"> 
-
-                    </div>
-                </div>    
-                </div>
-                </div> -->
-
-
+                
 
                 <!-- Post Content Column -->
                 <div class="col-lg-8 row-lg-4" id="lista" style="margin: 0 auto; float: none; margin-bottom: 10px;">
-                    <div class="card mb-3" onclick="selecionarAcao(1)">
-                    <img src="https://i2.wp.com/emotioncard.com.br/wp-content/uploads/2017/07/mensagens-mensagens-de-bom-dia-4.jpg?fit=640%2C640&ssl=1" class="card-img-top" alt="imgs" height="400" width="100">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    </div>
+                    <!-- <div class="card mb-3" onclick="selecionarAcao(1)">
+                        <img src="https://i2.wp.com/emotioncard.com.br/wp-content/uploads/2017/07/mensagens-mensagens-de-bom-dia-4.jpg?fit=640%2C640&ssl=1" class="card-img-top" alt="imgs" height="400" width="100">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
                     </div>
 
                     <div class="card mb-3" onclick="selecionarAcao(2)">
-                    <img src="https://i2.wp.com/emotioncard.com.br/wp-content/uploads/2017/07/mensagens-mensagens-de-bom-dia-4.jpg?fit=640%2C640&ssl=1" class="card-img-top img=fluid" alt="imgs" height="400" width="100">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    </div>
-                    </div>
+                        <img src="https://i2.wp.com/emotioncard.com.br/wp-content/uploads/2017/07/mensagens-mensagens-de-bom-dia-4.jpg?fit=640%2C640&ssl=1" class="card-img-top img=fluid" alt="imgs" height="400" width="100">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                    </div> -->
                 </div>
                     
 
