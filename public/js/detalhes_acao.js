@@ -1,84 +1,89 @@
-//responsável por carregar ação do json à partir do id enviado da outra página via Cookie
+// Responsável por carregar ação do json à partir do id enviado da outra página via Cookie
 const carregarAcao = () => {
     const acao_id = Number.parseInt(localStorage.getItem("id"));
 
-    const acao = acaoArr.find((acao) => acao.id_acao === acao_id);          //busca no json a ação correspondente ao "id" da session
-
+    // Busca no json a ação correspondente ao "id" da session
+    const acao = acaoArr.find((acao) => acao.id_acao === acao_id);
+    
     localStorage.setItem("acao", JSON.stringify(acao));
 
     appendAcao(acao);
 }
 
-//responsável por escrever html dinâmico com os dados que vem do JSON
+// Responsável por escrever html dinâmico com os dados que vem do JSON
 const appendAcao = (acao) => {
+    
+    // Transforma dados do json em constantes
     const {id_acao, titulo, area_principal, tipo_acao, local,
         espaco_realizacao, resumo, periodo_inscricao, vagas,
-        programacao, publico_alvo, equipe, imagens} = acao;         //transforma dados do json em constantes
+        programacao, publico_alvo, equipe, imagens} = acao;         
 
-
-    document.getElementById("titulo").innerText = titulo;           //adiciona a constante titulo dentro da tag html de id "titulo"
+    // Adiciona a constante titulo dentro da tag html de id "titulo"
+    document.getElementById("titulo").innerText = titulo;
 
     // document.getElementById("area_principal").innerText = "Área: " + area_principal;
     // document.getElementById("tipo_acao").innerText = "Tipo: " + tipo_acao;
 
-    //inserindo imagens e slide no carousel
-    const carousel = document.getElementById("carrossel");        //captura a div "carrossel"
-    const slide_list = document.getElementById("slideList");     //captura a div "slideList"
+    // Inserindo imagens e slide no carousel
+    const carousel = document.getElementById("carrossel");        // captura a div "carrossel"
+    const slide_list = document.getElementById("slideList");     // captura a div "slideList"
 
     imagens.forEach((imagem, i) => {
        const carr = document.createElement("div");
        const slide = document.createElement("li");
 
-       //definindo atributos para carr e slide
+       // Definindo atributos para carr e slide
        carr.classList.add("carousel-item");
        slide.setAttribute("data-target", "carouselExampleIndicators");
        slide.setAttribute("data-slide-to", i);
        
-       if (i == 0)        //se for o primeiro elemento, define com a classe "active"
-       {
+       // Se for o primeiro elemento, define com a classe "active"
+       if (i === 0) {
            carr.classList.add("active");
            slide.classList.add("active");
        }
 
-       //criação e definição de atributos do elemento img "link"
+       // Criação e definição de atributos do elemento img "link"
        const link = document.createElement("img");
        link.setAttribute("src", imagem.link);
        link.setAttribute("height", 500);
        link.setAttribute("width", 1000);
        link.setAttribute("class", "d-block w-100");
 
-       carr.appendChild(link);              //insere o elemento img "link" dentro do elemento div "carr"
-       carousel.appendChild(carr);          //insere o elemento div "carr" dentro do elemento div "carousel"
-       slide_list.appendChild(slide);       //insere o elemento div "slide" dentro do elemento div "slide_list"
+       // Insere o elemento img "link" dentro do elemento div "carr"
+       carr.appendChild(link);
+
+       // Insere o elemento div "carr" dentro do elemento div "carousel"
+       carousel.appendChild(carr);
+
+       // Insere o elemento div "slide" dentro do elemento div "slide_list"
+       slide_list.appendChild(slide); 
 
     });
 
-     const informacoes_gerais = document.getElementById("informacoes_gerais");
-     const tipo = document.createElement("li");
-     const numero_participantes = document.createElement("li");
-     const numero_discentes = document.createElement("li");
-     const numero_docentes = document.createElement("li");
-     const valor_bolsas = document.createElement("li");
+    const informacoes_gerais = document.getElementById("informacoes_gerais");
+    const tipo = document.createElement("li");
+    const numero_participantes = document.createElement("li");
+    const numero_discentes = document.createElement("li");
+    const numero_docentes = document.createElement("li");
+    const valor_bolsas = document.createElement("li");
 
-     const n_participantes = calcularNumeroDeParticipantes();
-     const n_discentes = calcularNumeroDeParticipantesDiscentes();
-     const n_docentes = calcularNumeroDeParticipantesDocentes();
-     const v_bolsas = calcularValorTotalPago();
+    const n_participantes = calcularNumeroDeParticipantes();
+    const n_discentes = calcularNumeroDeParticipantesDiscentes();
+    const n_docentes = calcularNumeroDeParticipantesDocentes();
+    const v_bolsas = calcularValorTotalPago();
 
-     tipo.innerText = "Tipo: " + tipo_acao;
-     numero_participantes.innerText = "Número de Participantes: " + n_participantes;
-     numero_discentes.innerText = "Número de discentes: " + n_discentes;
-     numero_docentes.innerText = "Número de docentes: " + n_docentes;
-     valor_bolsas.innerText = "Valor Total das bolsas: R$" + v_bolsas + ",00";
+    tipo.innerText = "Tipo: " + tipo_acao;
+    numero_participantes.innerText = "Número de Participantes: " + n_participantes;
+    numero_discentes.innerText = "Número de discentes: " + n_discentes;
+    numero_docentes.innerText = "Número de docentes: " + n_docentes;
+    valor_bolsas.innerText = "Valor Total das bolsas: R$" + v_bolsas + ",00";
 
-     informacoes_gerais.appendChild(tipo);
-     informacoes_gerais.appendChild(numero_participantes);
-     informacoes_gerais.appendChild(numero_discentes);
-     informacoes_gerais.appendChild(numero_docentes);
-     informacoes_gerais.appendChild(valor_bolsas); 
-
-    // document.getElementById("modalidade").innerText = modalidade;
-
+    informacoes_gerais.appendChild(tipo);
+    informacoes_gerais.appendChild(numero_participantes);
+    informacoes_gerais.appendChild(numero_discentes);
+    informacoes_gerais.appendChild(numero_docentes);
+    informacoes_gerais.appendChild(valor_bolsas); 
 
     document.getElementById("resumo").innerText = resumo;
 
@@ -91,16 +96,18 @@ const appendAcao = (acao) => {
     });
 
     document.getElementById("cidade_estado").innerText = local.municipio + '/' + local.estado;
+
     document.getElementById("espaco_localizacao").innerText = espaco_realizacao;
 
     document.getElementById("periodo_inscricao").innerText = "De " + periodo_inscricao.data_inicial + " à " + periodo_inscricao.data_final;
-    var vagas_disponiveis =  vagas.quantidade_total - vagas.quantidade_ocupada;
-    localStorage.setItem("vagas_disponiveis", vagas_disponiveis);
+    
+    const vagas_disponiveis =  vagas.quantidade_total - vagas.quantidade_ocupada;
 
     document.getElementById("vagas_disponiveis").innerText = "Vagas Disponíveis: " + vagas_disponiveis;
 
-    if (vagas_disponiveis > 0)      //se há vagas disponíveis, cria e insere no html o botão para realizar inscrição
-    {
+    // Se há vagas disponíveis, cria e insere no html o botão para realizar inscrição
+    if (vagas_disponiveis > 0) {
+
         const div_inscricao = document.getElementById("div_inscricao");
         const div_btn = document.createElement("div");
         const btn = document.createElement("button");
@@ -113,7 +120,6 @@ const appendAcao = (acao) => {
 
         div_btn.appendChild(btn);
         div_inscricao.appendChild(div_btn);
-
     }
 
     const list_programacao = document.getElementById("list_programacao");
@@ -132,8 +138,6 @@ const appendAcao = (acao) => {
         tr.appendChild(atividades);
         list_programacao.appendChild(tr);
     });
-
-    //document.getElementById("carga_horaria").innerText = carga_horaria;
 
     const contatos = document.getElementById("contatos");
     
@@ -163,55 +167,61 @@ const appendAcao = (acao) => {
     });
 }
 
-//calcula o número total de participantes da ação
+// Calcula o número total de participantes da ação
 const calcularNumeroDeParticipantes = () => {
     const acao = JSON.parse(localStorage.getItem("acao"));
 
     return acao.equipe.length;
 }
 
-//calcula o número total de participantes discentes da ação
+// Calcula o número total de participantes discentes da ação
 const calcularNumeroDeParticipantesDiscentes = () => {
     const acao = JSON.parse(localStorage.getItem("acao"));
     return acao.equipe.filter(pessoa => pessoa.categoria === "Discente").length;
 }
 
-//calcula o número total de participantes docentes da ação
+// Calcula o número total de participantes docentes da ação
 const calcularNumeroDeParticipantesDocentes = () => {
     const acao = JSON.parse(localStorage.getItem("acao"));
     return acao.equipe.filter(pessoa => pessoa.categoria === "Docente").length;
 }
 
-//calcula o valor total das bolsas pagas aos discentes
+// Calcula o valor total das bolsas pagas aos discentes
 const calcularValorTotalPago = () => {
     const precoBolsa = 400;
     return calcularNumeroDeParticipantesDiscentes() * precoBolsa;
 }
 
-//realiza a inscrição do usuário
+// Realiza a inscrição do usuário
 const realizarInscricao = () => {
-    const nome = prompt("Digite seu nome:");
-    const email = prompt("Digite seu email:");
+    
+    const acao = JSON.parse(localStorage.getItem("acao"));
 
-    atualizarInscricoes();
+    if (acao.vagas.quantidade_ocupada < acao.vagas.quantidade_total) {
 
-    alert(nome + ", sua inscrição com o e-mail " + email + " foi realizada com sucesso!");
+        const nome = prompt("Digite seu nome:");
+        const email = prompt("Digite seu email:");
+
+        acao.vagas.quantidade_ocupada++;
+
+        localStorage.setItem("acao", JSON.stringify(acao));
+
+        atualizarElementoInscricoes();
+
+        alert(nome + ", sua inscrição com o e-mail " + email + " foi realizada com sucesso!");
+
+    } else {
+        
+        alert("Vagas esgotadas!");
+    }
 }
 
-//atualiza o número de vagas disponíveis
-const atualizarInscricoes = () => {
-    var vagas_disponiveis = parseInt(localStorage.getItem("vagas_disponiveis"));        //pega as vagas disponiveis do logalStorage
+// Atualiza o elemento das vagas disponíveis
+const atualizarElementoInscricoes = () => {
 
-    vagas_disponiveis = vagas_disponiveis - 1;
+    const acao = JSON.parse(localStorage.getItem("acao"));
 
-    localStorage.setItem("vagas_disponiveis", vagas_disponiveis);                       //atualiza as vagas disponíveis do localStorage
+    const vagas_disponiveis = acao.vagas.quantidade_total - acao.vagas.quantidade_ocupada;
 
-    document.getElementById("vagas_disponiveis").innerText = "Vagas Disponíveis: " + vagas_disponiveis;        //atualiza o html com o novo número de vagas disponíveis
-
-    if (vagas_disponiveis <= 0)     //se não há mais vagas disponíveis, remove o botão de realizar inscrições
-    {
-        document.getElementById("div_btn").innerText = '';   
-    }
-
-
+    document.getElementById("vagas_disponiveis").innerText = "Vagas Disponíveis: " + vagas_disponiveis;
 }
